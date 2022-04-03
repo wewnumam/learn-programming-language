@@ -1,25 +1,5 @@
 #include "Game.h"
 
-// our Game object
-Game* g_game = 0;
-
-int main(int argc, char* argv[])
-{
-    g_game = new Game();
-    g_game->init("Chapter 2", 100, 100, 640, 480, 0);
-
-    while(g_game->running())
-    {
-        g_game->handleEvents();
-        g_game->update();
-        g_game->render();
-    }
-    
-    g_game->clean();
-
-    return 0;
-}
-
 bool Game::init(
     const char* title, int xpos, int ypos,
     int width, int height, int flags)
@@ -54,16 +34,14 @@ bool Game::init(
     std::cout << "renderer creation success\n";
     
     SDL_SetRenderDrawColor(m_pRenderer, 255,0,0,255);
-    if (!TextureManager::Instance()->load(
-        "assets/horse.png", "animate", m_pRenderer))
-    {
-        std::cout << "texture load fail\n";
-        return false; // texture load init fail
-    }
+
+    m_go.load(
+        100, 100, 128, 128, "animate", "assets/horse.png", m_pRenderer);
+    m_player.load(
+        300, 300, 128, 128, "animate", "assets/horse.png", m_pRenderer);
 
     std::cout << "init success\n";
     
-    // everything inited successfully, start the main loop
     m_bRunning = true; 
 
     return true;
@@ -71,19 +49,18 @@ bool Game::init(
 
 void Game::render()
 {
-    SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
+    SDL_RenderClear(m_pRenderer);
 
-    TextureManager::Instance()->draw(
-        "animate", 0,0, 128, 128, m_pRenderer);
-    TextureManager::Instance()->drawFrame(
-        "animate", 100,100, 128, 128, 1, m_currentFrame, m_pRenderer);
+    m_go.draw(m_pRenderer);
+    m_player.draw(m_pRenderer);
 
-    SDL_RenderPresent(m_pRenderer); // draw to the screen
+    SDL_RenderPresent(m_pRenderer);
 }
 
 void Game::update()
 {
-    m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+    m_go.update();
+    m_player.update();
 }
 
 void Game::handleEvents()
