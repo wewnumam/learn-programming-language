@@ -10,7 +10,10 @@ namespace CollegeHomework
             // new Suffix();
             // new ExplicitCasting();
             // new IfStatement();
-            new ElseIf();
+            // new ElseIf();
+            new DoWhile();
+            new While();
+            new For();
         }
     }
 }
