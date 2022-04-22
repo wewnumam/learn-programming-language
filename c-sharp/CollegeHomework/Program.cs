@@ -11,9 +11,10 @@ namespace CollegeHomework
             // new ExplicitCasting();
             // new IfStatement();
             // new ElseIf();
-            new DoWhile();
-            new While();
-            new For();
+            // new DoWhile();
+            // new While();
+            // new For();
+            new Fibonacci();
         }
     }
 }
