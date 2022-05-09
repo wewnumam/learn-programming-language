@@ -14,7 +14,9 @@ namespace CollegeHomework
             // new DoWhile();
             // new While();
             // new For();
-            new Fibonacci();
+            // new Fibonacci();
+            // new SwitchCase();
+            new Array2D();
         }
     }
 }
