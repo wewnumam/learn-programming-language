@@ -18,7 +18,8 @@ namespace CollegeHomework
             // new SwitchCase();
             // new Array2D();
             // new ForEach();
-            new Function();
+            // new Function();
+            new Enkapsulasi();
         }
     }
 }
