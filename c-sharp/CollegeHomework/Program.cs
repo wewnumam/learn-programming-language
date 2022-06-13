@@ -19,7 +19,9 @@ namespace CollegeHomework
             // new Array2D();
             // new ForEach();
             // new Function();
-            new Enkapsulasi();
+            // new Enkapsulasi();
+            // new Constructor();
+            new Inheritance();
         }
     }
 }

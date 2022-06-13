@@ -2,16 +2,19 @@ namespace CollegeHomework
 {
     class Kucing
     {
-        private string name = "";
+        private string name;
         private int age;
-        private string color = "";
+        private string color;
 
         public Kucing()
         {
-            
+            this.name = "";
+            this.age = 0;
+            this.color = "";
         }
 
-        public Kucing(string name, int age, string color)
+        public Kucing(
+            string name, int age, string color)
         {
             this.name = name;
             this.age = age;
